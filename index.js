@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
     res.send("This is the home page!")
 })
 
+//adding path params: 
 //http://localhost:3000/r/cats   ***the : indicates a variable 
 app.get("/r/:subreddit", (req, res) => {
     const {subreddit} = req.params;
@@ -41,6 +42,12 @@ app.get("/cats", (req, res) => {
 
 app.get("/dogs", (req, res) => {
     res.send("Woof!!")
+})
+
+//adding query strings 
+app.get("/search", (req, res) => {
+    const {q} = req.query;
+    res.send(`<h1>Search results for: ${q}!</h1>`)
 })
 
 //the * is everything else (like if someone mistyped, i.e. ;alkdjf;laksdjf)
