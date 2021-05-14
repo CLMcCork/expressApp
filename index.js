@@ -16,7 +16,7 @@ const app = express ();
 // })
 
 app.get("/", (req, res) => {
-    res.send("This is the home page!")
+    res.send("This is the home page!!!!!!!")
 })
 
 //adding path params: 
@@ -47,6 +47,9 @@ app.get("/dogs", (req, res) => {
 //adding query strings 
 app.get("/search", (req, res) => {
     const {q} = req.query;
+    if(!q) {
+        res.send("Nothing found if nothing searched!")  //http://localhost:3000/search --no query (no q)
+    }
     res.send(`<h1>Search results for: ${q}!</h1>`)
 })
 
