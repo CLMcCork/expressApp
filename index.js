@@ -19,6 +19,18 @@ app.get("/", (req, res) => {
     res.send("This is the home page!")
 })
 
+//http://localhost:3000/r/cats   ***the : indicates a variable 
+app.get("/r/:subreddit", (req, res) => {
+    const {subreddit} = req.params;
+    res.send(`<h1>Browsing the ${subreddit} subreddit</h1>`)
+})
+
+//multiple params r/something/somethingElse 
+app.get("/r/:subreddit/:postId", (req, res) => {
+    const {subreddit, postId} = req.params;
+    res.send(`<h1>Viewing Post ID: ${postId} on the ${subreddit} subreddit</h1>`)
+})
+
 app.post("/cats", (req, res) => {
     res.send("POST REQUEST to /cats! This is different than a GET request!")
 } )
